@@ -20,3 +20,15 @@ describe('mock function to test addition', () => {
         expect(mockCallback.mock.results[1].value).toBe(43);
     });
 });
+
+describe('mock function to test multiplication', () => {
+    it('should test the mock func', () => {
+        const mockCallback = jest.fn(x => 42 * x);
+        forEach([0, 1, 4, 5, 6], mockCallback);
+
+        //The mock function is called twice
+        expect(mockCallback.mock.calls.length).toBe(5);
+        expect(mockCallback.mock.results[0].value).toBe(0);
+        expect(mockCallback.mock.results[1].value).toBe(42);
+    });
+});
